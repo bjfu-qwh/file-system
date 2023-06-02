@@ -1,0 +1,5 @@
+#build output
+build/
+
+### visual studio code
+.vscode
