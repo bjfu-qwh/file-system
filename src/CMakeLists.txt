@@ -1,16 +1,30 @@
 cmake_minimum_required(VERSION 3.7)
 
 # 设置对应的include列表
-set(HEADER_LIST "${CMAKE_CURRENT_SOURCE_DIR}/include/")
+set(HEADER_LIST "${PROJECT_SOURCE_DIR}/include/")
 
 # 设置所有的源文件列表
-set(SOURCE_LIST "${CMAKE_CURRENT_SOURCE_DIR}/")
+set(SOURCE_LIST "${PROJECT_SOURCE_DIR}/src")
+
+# 系统核心库
+add_library(
+    core
+    ${SOURCE_LIST}/core.cc
+    ${HEADER_LIST}/core.h
+)
+
+# 磁盘管理库
+add_library(
+    disk
+    ${SOURCE_LIST}/disk.cc
+    ${HEADER_LIST}/disk.h
+)
+
 
 # 添加一个库
 add_library(
     file_system_lib 
-    ${SOURCE_LIST}
-    ${HEADER_LIST}
+    disk
 )
 
 # 在这里引入include目录
