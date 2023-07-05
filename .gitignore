@@ -1,6 +1,5 @@
 #build output
 build/
-*
 
 ### visual studio code's local configuration file
 .vscode

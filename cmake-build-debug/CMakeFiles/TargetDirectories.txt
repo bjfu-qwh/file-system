@@ -1,0 +1,11 @@
+D:/Projects/Systems/operating-system/file/cmake-build-debug/CMakeFiles/app.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/src/CMakeFiles/core.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/src/CMakeFiles/disk.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/src/CMakeFiles/file_system_lib.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/test/CMakeFiles/test_config.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/test/CMakeFiles/edit_cache.dir
+D:/Projects/Systems/operating-system/file/cmake-build-debug/test/CMakeFiles/rebuild_cache.dir
