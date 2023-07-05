@@ -8,43 +8,43 @@ set(SOURCE_LIST "${PROJECT_SOURCE_DIR}/src")
 
 # 系统核心库
 add_library(
-    core
-    ${SOURCE_LIST}/core.cc
-    ${HEADER_LIST}/core.h
+        core
+        ${SOURCE_LIST}/core.cc
+        ${HEADER_LIST}/core.h
 )
 
 # 磁盘管理库
 add_library(
-    disk
-    ${SOURCE_LIST}/disk.cc
-    ${HEADER_LIST}/disk.h
+        disk
+        ${SOURCE_LIST}/disk.cc
+        ${HEADER_LIST}/disk.h
 )
 
 
 # 添加一个库
 add_library(
-    file_system_lib 
-    disk
+        file_system_lib
+        disk
 )
 
 # 在这里引入include目录
 target_include_directories(
-    file_system_lib 
-    PUBLIC 
-    ../include
+        file_system_lib
+        PUBLIC
+        ../include
 )
 
 # 指定库文件编译参数
 target_compile_features(
-    file_system_lib 
-    PUBLIC 
-    cxx_std_11
+        file_system_lib
+        PUBLIC
+        cxx_std_11
 )
 
 # 指定库文件链接参数
 set_target_properties(
-    file_system_lib 
-    PROPERTIES 
-    LINKER_LANGUAGE 
-    CXX
+        file_system_lib
+        PROPERTIES
+        LINKER_LANGUAGE
+        CXX
 )
