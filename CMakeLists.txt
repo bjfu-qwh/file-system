@@ -15,14 +15,9 @@ set(
 
 # 这是build中的资源文件,在build中增加config目录（和应用程序同级）
 set(
-        config_diretory
+        config_directory
         ${BUILD_DIR}/config
 )
-
-# 包含程序的三个目录:配置、源文件、测试文件。
-include_directories(${config_diretory})
-add_subdirectory(src)
-add_subdirectory(test)
 
 #!!!添加系统磁盘的文件地址
 configure_file(
@@ -30,6 +25,11 @@ configure_file(
         ${config_diretory}/config.conf
         COPYONLY
 )
+
+# 包含程序的三个目录:配置、源文件、测试文件。
+include_directories(${config_diretory})
+add_subdirectory(src)
+add_subdirectory(test)
 
 # 项目的最终可执行文件
 add_executable(

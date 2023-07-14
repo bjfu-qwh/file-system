@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "src/libcore.a"
+			"path" : "src/libfile_system_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -12,12 +12,11 @@
 		"commands" : 
 		[
 			"add_library",
-			"include_directories"
+			"target_include_directories"
 		],
 		"files" : 
 		[
-			"src/CMakeLists.txt",
-			"CMakeLists.txt"
+			"src/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -27,17 +26,14 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 10,
+				"line" : 25,
 				"parent" : 0
 			},
 			{
-				"file" : 1
-			},
-			{
 				"command" : 1,
-				"file" : 1,
-				"line" : 23,
-				"parent" : 2
+				"file" : 0,
+				"line" : 31,
+				"parent" : 0
 			}
 		]
 	},
@@ -53,8 +49,8 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
-					"path" : "D:/Projects/Systems/operating-system/file/cmake-build-debug/config"
+					"backtrace" : 2,
+					"path" : "D:/Projects/Systems/operating-system/file/src/../include"
 				}
 			],
 			"language" : "CXX",
@@ -64,9 +60,9 @@
 			]
 		}
 	],
-	"id" : "core::@145eef247bfb46b6828c",
-	"name" : "core",
-	"nameOnDisk" : "libcore.a",
+	"id" : "file_system_lib::@145eef247bfb46b6828c",
+	"name" : "file_system_lib",
+	"nameOnDisk" : "libfile_system_lib.a",
 	"paths" : 
 	{
 		"build" : "src",
@@ -80,13 +76,6 @@
 			[
 				0
 			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
-				1
-			]
 		}
 	],
 	"sources" : 
@@ -94,13 +83,8 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/core.cc",
+			"path" : "src/disk.cc",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/core.h",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"

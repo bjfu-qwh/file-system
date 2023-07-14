@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_app: phony || cmake_object_order_depends
 build CMakeFiles/app.dir/main.cc.obj: CXX_COMPILER__app_Debug D$:/Projects/Systems/operating-system/file/main.cc || cmake_object_order_depends_target_app
   DEP_FILE = CMakeFiles\app.dir\main.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/Projects/Systems/operating-system/file/cmake-build-debug/config -ID:/Projects/Systems/operating-system/file/src/../include
+  INCLUDES = -ID:/Projects/Systems/operating-system/file/src/../include
   OBJECT_DIR = CMakeFiles\app.dir
   OBJECT_FILE_DIR = CMakeFiles\app.dir
 
@@ -114,7 +114,6 @@ build cmake_object_order_depends_target_core: phony || src/CMakeFiles/core.dir
 build src/CMakeFiles/core.dir/core.cc.obj: CXX_COMPILER__core_Debug D$:/Projects/Systems/operating-system/file/src/core.cc || cmake_object_order_depends_target_core
   DEP_FILE = src\CMakeFiles\core.dir\core.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/Projects/Systems/operating-system/file/cmake-build-debug/config
   OBJECT_DIR = src\CMakeFiles\core.dir
   OBJECT_FILE_DIR = src\CMakeFiles\core.dir
 
@@ -146,7 +145,6 @@ build cmake_object_order_depends_target_disk: phony || src/CMakeFiles/disk.dir
 build src/CMakeFiles/disk.dir/disk.cc.obj: CXX_COMPILER__disk_Debug D$:/Projects/Systems/operating-system/file/src/disk.cc || cmake_object_order_depends_target_disk
   DEP_FILE = src\CMakeFiles\disk.dir\disk.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/Projects/Systems/operating-system/file/cmake-build-debug/config
   OBJECT_DIR = src\CMakeFiles\disk.dir
   OBJECT_FILE_DIR = src\CMakeFiles\disk.dir
 
@@ -178,7 +176,7 @@ build cmake_object_order_depends_target_file_system_lib: phony || src/CMakeFiles
 build src/CMakeFiles/file_system_lib.dir/disk.cc.obj: CXX_COMPILER__file_system_lib_Debug D$:/Projects/Systems/operating-system/file/src/disk.cc || cmake_object_order_depends_target_file_system_lib
   DEP_FILE = src\CMakeFiles\file_system_lib.dir\disk.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/Projects/Systems/operating-system/file/cmake-build-debug/config -ID:/Projects/Systems/operating-system/file/src/../include
+  INCLUDES = -ID:/Projects/Systems/operating-system/file/src/../include
   OBJECT_DIR = src\CMakeFiles\file_system_lib.dir
   OBJECT_FILE_DIR = src\CMakeFiles\file_system_lib.dir
 
@@ -238,14 +236,14 @@ build cmake_object_order_depends_target_test_config: phony || cmake_object_order
 build test/CMakeFiles/test_config.dir/test_config.cc.obj: CXX_COMPILER__test_config_Debug D$:/Projects/Systems/operating-system/file/test/test_config.cc || cmake_object_order_depends_target_test_config
   DEP_FILE = test\CMakeFiles\test_config.dir\test_config.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/Projects/Systems/operating-system/file/cmake-build-debug/config -ID:/Projects/Systems/operating-system/file/src/../include
+  INCLUDES = -ID:/Projects/Systems/operating-system/file/src/../include
   OBJECT_DIR = test\CMakeFiles\test_config.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test_config.dir
 
 build test/CMakeFiles/test_config.dir/__/src/core.cc.obj: CXX_COMPILER__test_config_Debug D$:/Projects/Systems/operating-system/file/src/core.cc || cmake_object_order_depends_target_test_config
   DEP_FILE = test\CMakeFiles\test_config.dir\__\src\core.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -ID:/Projects/Systems/operating-system/file/cmake-build-debug/config -ID:/Projects/Systems/operating-system/file/src/../include
+  INCLUDES = -ID:/Projects/Systems/operating-system/file/src/../include
   OBJECT_DIR = test\CMakeFiles\test_config.dir
   OBJECT_FILE_DIR = test\CMakeFiles\test_config.dir\__\src
 

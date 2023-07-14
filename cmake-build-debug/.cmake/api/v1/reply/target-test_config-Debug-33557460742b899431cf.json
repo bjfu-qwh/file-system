@@ -14,13 +14,11 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_link_libraries",
-			"include_directories"
+			"target_link_libraries"
 		],
 		"files" : 
 		[
-			"test/CMakeLists.txt",
-			"CMakeLists.txt"
+			"test/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -38,15 +36,6 @@
 				"file" : 0,
 				"line" : 19,
 				"parent" : 0
-			},
-			{
-				"file" : 1
-			},
-			{
-				"command" : 2,
-				"file" : 1,
-				"line" : 23,
-				"parent" : 3
 			}
 		]
 	},
@@ -61,10 +50,6 @@
 			],
 			"includes" : 
 			[
-				{
-					"backtrace" : 4,
-					"path" : "D:/Projects/Systems/operating-system/file/cmake-build-debug/config"
-				},
 				{
 					"backtrace" : 2,
 					"path" : "D:/Projects/Systems/operating-system/file/src/../include"
