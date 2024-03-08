@@ -3,3 +3,7 @@ build/
 
 ### visual studio code's local configuration file
 .vscode
+
+.idea
+cmake-build-debug
+*.exe
