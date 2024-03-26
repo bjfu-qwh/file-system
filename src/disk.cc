@@ -1,1 +1,1 @@
-#include "../include/disk.h"
+#include "include/disk.h"

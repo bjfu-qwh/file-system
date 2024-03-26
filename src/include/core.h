@@ -1,6 +1,6 @@
 /**
  * @file core.h
- * @author bfu qwh
+ * @author bfu-qwh
  * @brief 系统的核心配置参数以及函数。比如磁盘大小以及划分设计、
  * 虚拟磁盘的路径读取等。
  *
@@ -12,10 +12,8 @@
  */
 #ifndef CORE_H_
 #define CORE_H_
-#ifndef DISK_NAME
-#define DISK_NAME "data.iso" // 规定了磁盘文件的名称和后缀。
-#endif
 
+namespace FileSystem {
 /**
  * @brief 读取虚拟磁盘的位置，返回其绝对路径。
  * @note 磁盘的绝对路径书写在config目录下的config.conf文件下。如
@@ -24,6 +22,7 @@
  *
  * @return const char* 磁盘的绝对路径
  */
-const char *fetchDiskLocation();
+char *fetchDiskLocation();
+}  // namespace FileSystem
 
 #endif

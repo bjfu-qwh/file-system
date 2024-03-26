@@ -1,16 +1,20 @@
 cmake_minimum_required(VERSION 3.7)
 
-# 设置对应的include列表
-set(HEADER_LIST "${PROJECT_SOURCE_DIR}/include/")
-
 # 设置所有的源文件列表
 set(SOURCE_LIST "${PROJECT_SOURCE_DIR}/src")
+
+# 设置对应的include列表
+set(HEADER_LIST "${SOURCE_LIST}/include/")
 
 # 系统核心库
 add_library(
         core
         ${SOURCE_LIST}/core.cc
         ${HEADER_LIST}/core.h
+        ${HEADER_LIST}/inode.h
+        ${HEADER_LIST}/config.h
+        ${SOURCE_LIST}/super_block.cpp
+        include/super_block.h
 )
 
 # 磁盘管理库
@@ -31,7 +35,7 @@ add_library(
 target_include_directories(
         file_system_lib
         PUBLIC
-        ../include
+        include
 )
 
 # 指定库文件编译参数
