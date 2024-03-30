@@ -12,7 +12,6 @@ set(
         ${BUILD_DIR}/test/config
 )
 
-#!!!添加系统磁盘的文件地址
 configure_file(
         ${PROJECT_SOURCE_DIR}/config/config.conf
         ${config_diretory}/config.conf
@@ -24,12 +23,16 @@ add_executable(
         test_config
         test_config.cc
         ${HEADER_LIST}/config.h
-        ${HEADER_LIST}/core.h
-        ${SOURCE_LIST}/core.cc
+        ${SOURCE_LIST}/config.cc
 )
 
-target_compile_features(test_config PRIVATE cxx_std_11)
-
-target_link_libraries(test_config PRIVATE file_system_lib)
+add_executable(
+        test_common
+        test_common.cc
+        ${HEADER_LIST}/common.h
+        ${SOURCE_LIST}/common.cc
+)
 
 add_test(NAME test_config COMMAND test_config)
+
+add_test(NAME test_common COMMAND test_common)
