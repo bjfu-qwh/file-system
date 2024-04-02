@@ -33,6 +33,17 @@ add_executable(
         ${SOURCE_LIST}/common.cc
 )
 
+add_executable(
+        test_inode
+        test_inode.cc
+        ../src/inode.cc
+        ../src/include/inode.h
+        ../src/common.cc
+        ../src/include/common.h
+)
+
 add_test(NAME test_config COMMAND test_config)
 
 add_test(NAME test_common COMMAND test_common)
+
+add_test(NAME test_inode COMMAND test_inode)

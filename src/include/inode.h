@@ -8,12 +8,20 @@ class INode {
     int nlink_;
     int uid_;
     unsigned size_;
-    char atime[TIME_LENGTH]{};
-    char ctime[TIME_LENGTH]{};
-    char mtime[TIME_LENGTH]{};
+    char atime_[TIME_LENGTH]{};
+    char ctime_[TIME_LENGTH]{};
+    char mtime_[TIME_LENGTH]{};
 
    public:
     explicit INode(int uid_, unsigned size_);
+
+    inline auto GetMTime() -> char* { return mtime_; }
+
+    inline auto GetCTime() -> char* { return ctime_; }
+
+    inline auto GetATime() -> char* { return atime_; }
+
+    [[nodiscard]] inline auto GetNLink() const -> int { return nlink_; }
 
     ~INode() = default;
 };

@@ -22,4 +22,9 @@ static constexpr const char *PARENT_DIR = "..";
 static constexpr const int ROOT_INODE_NUMBER = 1;
 
 static constexpr const int TIME_LENGTH = 20;
+
+// TODO 实现虚拟磁盘设计
+static constexpr const int INODE_LIST_START = 0; /**虚拟磁盘中INODE区的起始offset*/
+
+using block_type = int;
 }  // namespace FileSystem
