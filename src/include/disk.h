@@ -16,29 +16,8 @@
 #include "mutex"
 
 namespace FileSystem {
-/**
- * DiskManager负责以块为单位维护虚拟磁盘读写操作。
- */
-class DiskManager {
-   private:
-    std::mutex io_mutex_;
-    std::fstream io_;
-    std::string file_name_;
+void ReadBlock(block_type block_id, char *block_data);
 
-   public:
-    void ReadBlock(block_type block_id, char *block_data);
-
-    void WriteBlock(block_type block_id, const char *block_data);
-
-    explicit DiskManager(std::string file_name);
-
-    DiskManager() = default;
-
-    ~DiskManager() = default;
-
-    DiskManager(const DiskManager &that) = delete;
-
-    DiskManager operator=(DiskManager that) = delete;
-};
+void WriteBlock(block_type block_id, const char *block_data);
 }  // namespace FileSystem
 #endif
