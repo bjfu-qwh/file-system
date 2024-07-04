@@ -7,7 +7,7 @@
 #include "cstring"
 
 namespace FileSystem {
-Buffer::Buffer(block_type block_id, const char *data) : block_id_(block_id) {
+Buffer::Buffer(const block_type &block_id, const char *data) : block_id_(block_id) {
   strncpy(data_, data, BLOCK_SIZE);
   ref_count_ = 0;
 }

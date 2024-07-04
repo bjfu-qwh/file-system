@@ -28,6 +28,7 @@ add_subdirectory(test)
 add_executable(
         file-system
         main.cc
+        src/include/exception.h
 )
 
 # 指定项目编译方法

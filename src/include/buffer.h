@@ -18,7 +18,7 @@ class Buffer {
   char data_[BLOCK_SIZE]{'0'}; /**具体数据*/
 
  public:
-  explicit Buffer(block_type block_id, const char *data);
+  explicit Buffer(const block_type &block_id, const char *data);
 };
 
 class BufferManager {

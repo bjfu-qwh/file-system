@@ -1,7 +1,10 @@
 #include "include/config.h"
 
+#include <fstream>
+
 #include "cassert"
 #include "cstdio"
+#include "include/exception.h"
 
 namespace FileSystem {
 auto fetchDiskLocation() -> char * {

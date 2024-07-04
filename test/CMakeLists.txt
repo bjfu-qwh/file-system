@@ -24,6 +24,17 @@ add_executable(
         test_config.cc
         ${HEADER_LIST}/config.h
         ${SOURCE_LIST}/config.cc
+        ../src/include/exception.h
+)
+
+add_executable(
+        test_disk_manager
+        test_disk_manager.cc
+        ../src/disk_manager.cc
+        ../src/include/disk_manager.h
+        ../src/config.cc
+        ../src/include/config.h
+        ../src/include/exception.h
 )
 
 add_executable(
@@ -31,6 +42,7 @@ add_executable(
         test_common.cc
         ${HEADER_LIST}/common.h
         ${SOURCE_LIST}/common.cc
+        ../src/include/exception.h
 )
 
 add_executable(
@@ -40,6 +52,7 @@ add_executable(
         ../src/include/inode.h
         ../src/common.cc
         ../src/include/common.h
+        ../src/include/exception.h
 )
 
 add_test(NAME test_config COMMAND test_config)

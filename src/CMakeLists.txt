@@ -1,33 +1,24 @@
 cmake_minimum_required(VERSION 3.7)
 
 add_library(
-        core
+        file_system_lib
+        disk_manager.cc
+        include/disk_manager.h
+        buffer.cc
+        include/buffer.h
+        config.cc
+        include/config.h
         core.cc
         include/core.h
+        inode.cc
+        include/inode.h
         super_block.cc
         include/super_block.h
+        directory.cc
+        include/directory.h
+        include/exception.h
+        disk_manager.cc
 )
-
-add_library(
-        inode
-        include/inode.h
-        common.cc
-        include/common.h
-        inode.cc
-)
-
-add_library(config config.cc include/config.h)
-
-add_library(buffer buffer.cc include/buffer.h buffer.cc)
-
-add_library(common common.cc include/common.h)
-
-#磁盘管理库
-add_library(disk disk.cc include/disk.h)
-
-#添加一个库
-add_library(file_system_lib disk core inode common
-        buffer config)
 
 #在这里引入include目录
 target_include_directories(
