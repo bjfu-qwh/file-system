@@ -17,6 +17,9 @@
 #include "cstdio"
 
 namespace FileSystem {
+/**
+ * @brief DiskManager 管理虚拟磁盘的块级读写。
+ */
 class DiskManager {
  public:
   void ReadBlock(block_type block_id, char *block_data);
@@ -25,7 +28,7 @@ class DiskManager {
 
   explicit DiskManager(const char *path = fetchDiskLocation());
 
-  auto GetFileSize() const -> size_t;
+  [[nodiscard]] auto GetFileSize() const -> size_t;
 
   ~DiskManager();
 

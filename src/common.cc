@@ -1,8 +1,7 @@
 #include "include/common.h"
-
-#include "ctime"
+#include <ctime>
+#include <string>
 #include "include/config.h"
-#include "string"
 
 namespace FileSystem {
 auto GetCurrentTime() -> std::string {

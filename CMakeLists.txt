@@ -28,11 +28,10 @@ add_subdirectory(test)
 add_executable(
         file-system
         main.cc
-        src/include/exception.h
 )
 
-# 指定项目编译方法
-target_compile_features(file-system PRIVATE cxx_std_11)
+## 指定项目编译方法
+#target_compile_features(file-system PRIVATE cxx_std_11)
 
 # 链接src提供的库文件
 target_link_libraries(file-system PRIVATE file_system_lib)

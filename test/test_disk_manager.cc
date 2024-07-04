@@ -1,4 +1,4 @@
-#include <assert.h>
+#include <cassert>
 #include <cstring>
 #include <string>
 #include "../src/include/disk_manager.h"
@@ -9,7 +9,8 @@ void testVDiskPath() {
   const std::string wrong_path = "wrong";
   try {
     DiskManager(wrong_path.c_str());
-  } catch (SystemExpection &se [[maybe_unused]]) {
+  } catch (SystemExpection &se) {
+    assert(se.type_ == ExceptionType::SYSTEM_ERROR);
   }
 }
 
@@ -19,13 +20,13 @@ void testBasicReadAndWrite() {
   auto dm = DiskManager(fetchDiskLocation());
   strncpy(data, "A test string.", sizeof(data));
 
-  dm.ReadBlock(0, buf);  // tolerate empty read
+  dm.ReadBlock(0, buf);
 
   dm.WriteBlock(0, data);
   dm.ReadBlock(0, buf);
   assert(memcmp(buf, data, sizeof(buf)) == 0);
 
-  std::memset(buf, 0, sizeof(buf));
+  memset(buf, 0, sizeof(buf));
   dm.WriteBlock(5, data);
   dm.ReadBlock(5, buf);
   assert(memcmp(buf, data, sizeof(buf)) == 0);

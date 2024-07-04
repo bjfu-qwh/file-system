@@ -1,8 +1,6 @@
 #include "include/disk_manager.h"
 #include <cassert>
-
-#include "cstring"
-
+#include <cstring>
 #include "include/exception.h"
 
 namespace FileSystem {
@@ -62,5 +60,6 @@ void DiskManager::CreateVirtualDisk() {
   fseek(disk_ptr_, DISK_SIZE - 1, SEEK_SET);
   constexpr char ch = 0;
   fwrite(&ch, 1, sizeof(ch), disk_ptr_);
+  assert(GetFileSize() == DISK_SIZE);
 }
 }  // namespace FileSystem

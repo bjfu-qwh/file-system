@@ -17,7 +17,6 @@ add_library(
         directory.cc
         include/directory.h
         include/exception.h
-        disk_manager.cc
 )
 
 #在这里引入include目录
