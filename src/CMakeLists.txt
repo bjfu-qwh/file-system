@@ -17,6 +17,8 @@ add_library(
         directory.cc
         include/directory.h
         include/exception.h
+        lru_replacer.cc
+        include/lru_replacer.h
 )
 
 #在这里引入include目录

@@ -15,4 +15,4 @@ void testDiskConfig() {
 }
 }  // namespace FileSystem
 
-int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) { FileSystem::testDiskConfig(); }
+int main([[maybe_unused]] int argc, [[maybe_unused]] char **argv) { testDiskConfig(); }

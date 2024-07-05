@@ -4,10 +4,10 @@
 #include "include/exception.h"
 
 namespace FileSystem {
-void DiskManager::ReadBlock(block_type block_id, char *block_data) {
+void DiskManager::ReadBlock(const block_type &block_id, char *block_data) {
   assert(disk_ptr_ != nullptr);
   std::scoped_lock scoped_lock(io_lock_);
-  const size_t offset = BLOCK_SIZE * block_id;  // TODO:fix the offset
+  const size_t offset = GetOffset(block_id);
   if (offset >= GetFileSize()) {
     throw OutOfRangeException("read block out of file range.");
   }
@@ -19,7 +19,7 @@ void DiskManager::ReadBlock(block_type block_id, char *block_data) {
 void DiskManager::WriteBlock(const block_type block_id, const char *block_data) {
   assert(disk_ptr_ != nullptr);
   std::scoped_lock scoped_lock(io_lock_);
-  const size_t offset = BLOCK_SIZE * block_id;  // TODO:fix the offset
+  const size_t offset = GetOffset(block_id);
   fseek(disk_ptr_, static_cast<long>(offset), SEEK_SET);
   fwrite(block_data, sizeof(char), BLOCK_SIZE, disk_ptr_);
   fflush(disk_ptr_);
@@ -56,10 +56,14 @@ DiskManager::~DiskManager() { fclose(disk_ptr_); }
 void DiskManager::CreateVirtualDisk() {
   std::string disk_path(fetchDiskLocation());
   disk_path += DISK_NAME;
-  disk_ptr_ = fopen(disk_path.c_str(), "rb+");
+  disk_ptr_ = fopen(disk_path.c_str(), "wb+");
+  if (disk_ptr_ == nullptr) {
+    throw SystemExpection("cannot create file:" + disk_path);
+  }
   fseek(disk_ptr_, DISK_SIZE - 1, SEEK_SET);
   constexpr char ch = 0;
   fwrite(&ch, 1, sizeof(ch), disk_ptr_);
+  fflush(disk_ptr_);
   assert(GetFileSize() == DISK_SIZE);
 }
 }  // namespace FileSystem

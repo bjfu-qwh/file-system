@@ -10,6 +10,7 @@
 #include "atomic"
 #include "config.h"
 #include "disk_manager.h"
+#include "lru_replacer.h"
 #include "mutex"  // NO_LINT
 #include "unordered_map"
 
@@ -56,13 +57,7 @@ class BufferManager {
 
   ~BufferManager();
 
-  auto AccessBlock(const block_type &block_id, char *buf) -> Buffer *;
-
-  auto Pin(const block_type &block_id) -> bool;
-
-  auto UnPin(const block_type &block_id) -> bool;
-
-  void NewBlock(block_type &block_id);
+  auto AccessBlock(const block_type &block_id) -> Buffer *;
 
  private:
   size_t buffer_size_{0};                    /**缓存池最大容量*/
@@ -70,9 +65,8 @@ class BufferManager {
   std::atomic<size_t> next_block_id_{0};     /**用于分配块编号*/
   std::unordered_map<block_type, Buffer *> cache_;
   size_t timestamp_{0};
-  DiskManager dm_;
-
-  void Schedule()->block_type;
+  DiskManager *dm_;
+  LRUReplacer *replacer_;
 };
 }  // namespace FileSystem
 #endif  // FILE_SYSTEM_BUFFER_H

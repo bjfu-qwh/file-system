@@ -46,6 +46,16 @@ add_executable(
 )
 
 add_executable(
+        test_lru_replacer
+        test_lru_replacer.cc
+        ../src/lru_replacer.cc
+        ../src/include/lru_replacer.h
+        ../src/config.cc
+        ../src/include/config.h
+        ../src/include/exception.h
+)
+
+add_executable(
         test_inode
         test_inode.cc
         ../src/inode.cc

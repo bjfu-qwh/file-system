@@ -44,28 +44,28 @@ void Buffer::Reset() {
   memset(data_, 0, BLOCK_SIZE);
 }
 
-BufferManager::BufferManager(const size_t &buffer_size) { buffer_size_ = buffer_size; }
+BufferManager::BufferManager(const size_t &buffer_size) {
+  buffer_size_ = buffer_size;
+  replacer_ = new LRUReplacer(buffer_size);
+  dm_ = new DiskManager();
+}
 
 BufferManager::~BufferManager() {
   for (const auto &iter : cache_) {
     delete iter.second;
   }
+  delete dm_;
+  delete replacer_;
 }
 
-auto BufferManager::AccessBlock(const block_type &block_id, char *buf) -> Buffer * {
-  std::unordered_map<block_type, Buffer *>::iterator search;
+auto BufferManager::AccessBlock(const block_type &block_id) -> Buffer * {
+  Buffer *buf = nullptr;
   shared_lock_.lock();
-  search = cache_.find(block_id);
-  if (search == cache_.end()) {
+  auto search = cache_.find(block_id);
+  if (search != cache_.end()) {
+    buf = search->second;
   }
   shared_lock_.unlock();
+  return buf;
 }
-
-auto BufferManager::Pin(const block_type &block_id) -> bool {}
-
-auto BufferManager::UnPin(const block_type &block_id) -> bool {}
-
-void BufferManager::NewBlock(block_type &block_id) {}
-
-auto BufferManager::Schedule() -> block_type {}
 }  // namespace FileSystem

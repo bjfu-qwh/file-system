@@ -22,7 +22,7 @@ namespace FileSystem {
  */
 class DiskManager {
  public:
-  void ReadBlock(block_type block_id, char *block_data);
+  void ReadBlock(const block_type &block_id, char *block_data);
 
   void WriteBlock(block_type block_id, const char *block_data);
 
@@ -36,6 +36,7 @@ class DiskManager {
   FILE *disk_ptr_{nullptr};
   char *disk_path_;
   std::mutex io_lock_;
+  static inline auto GetOffset(const block_type &block_id) -> size_t { return BLOCK_SIZE * block_id; }
 
   void CreateVirtualDisk();
 };
