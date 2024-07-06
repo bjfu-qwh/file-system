@@ -4,8 +4,8 @@
 
 namespace FileSystem {
 class SuperBlock {
- private:
-  int inode_count_{0};
+   private:
+    int inode_count_{0};
 };
 }  // namespace FileSystem
 #endif  // FILE_SYSTEM_SUPER_BLOCK_H

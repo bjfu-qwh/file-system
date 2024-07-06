@@ -19,6 +19,7 @@ add_library(
         include/exception.h
         lru_replacer.cc
         include/lru_replacer.h
+        include/rw_lock.h
 )
 
 #在这里引入include目录

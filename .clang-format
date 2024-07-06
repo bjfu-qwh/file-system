@@ -1,9 +1,3 @@
 BasedOnStyle: Google
-DerivePointerAlignment: false
-PointerAlignment: Right
-ColumnLimit: 120
+IndentWidth: 4
 SortIncludes: CaseInsensitive
-
-# Default for clang-8, changed in later clangs. Set explicitly for forwards
-# compatibility for students with modern clangs
-IncludeBlocks: Preserve
