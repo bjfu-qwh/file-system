@@ -56,6 +56,23 @@ add_executable(
 )
 
 add_executable(
+        test_buffer_manager
+        ../src/buffer.cc
+        ../src/include/buffer.h
+        ../src/lru_replacer.cc
+        ../src/include/lru_replacer.h
+        ../src/include/rw_lock.h
+        ../src/disk_manager.cc
+        ../src/include/disk_manager.h
+        ../src/config.cc
+        ../src/common.cc
+        ../src/include/common.h
+        ../src/include/config.h
+        ../src/include/exception.h
+        test_buffer_manager.cc
+)
+
+add_executable(
         test_inode
         test_inode.cc
         ../src/inode.cc

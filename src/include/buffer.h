@@ -1,25 +1,25 @@
-//
-// Created by 20473 on 2024/3/30.
-//
-
 #ifndef FILE_SYSTEM_BUFFER_H
 #define FILE_SYSTEM_BUFFER_H
-
 #include <shared_mutex>
 
 #include "atomic"
 #include "config.h"
 #include "disk_manager.h"
-#include "include/rw_lock.h"
+#include "free_list.h"
 #include "lru_replacer.h"
-#include "mutex"  // NO_LINT
+#include "rw_lock.h"
 
 namespace FileSystem {
+/**
+ *
+ */
 class Buffer {
    public:
     explicit Buffer(const block_type& block_id, const char* data);
 
     Buffer() = default;
+
+    Buffer(const Buffer& other);
 
     [[nodiscard]] auto GetBlockId() const -> block_type;
 
@@ -39,6 +39,8 @@ class Buffer {
 
     void SetDirty(const bool& is_dirty);
 
+    void SetBlockId(const block_type& block_id);
+
     void Reset();
 
    private:
@@ -50,6 +52,9 @@ class Buffer {
     char data_[BLOCK_SIZE]{'0'};            /**具体数据*/
 };
 
+/**
+ *
+ */
 class BufferManager {
    public:
     BufferManager() = delete;
@@ -64,13 +69,18 @@ class BufferManager {
 
     auto FlushBlock(const block_type& block_id) -> bool;
 
+    auto Unpin(const block_type& block_id, const bool& is_dirty) -> bool;
+
    private:
-    size_t buffer_size_{0};                    /**缓存池最大容量*/
-    std::shared_lock<std::mutex> shared_lock_; /**全局锁*/
-    std::atomic<size_t> next_block_id_{0};     /**用于分配块编号*/
-    DiskManager* dm_;                          /**磁盘管理器*/
-    LRUReplacer* replacer_;        /**基于lru策略的缓冲区替换*/
-    Buffer* buffer_pool_{nullptr}; /**缓冲池*/
+    size_t buffer_size_{0};
+    std::shared_mutex mu_;                 /**全局锁*/
+    std::atomic<size_t> next_block_id_{0}; /**用于分配块编号*/
+    DiskManager* dm_;                      /**磁盘管理器*/
+    LRUReplacer* replacer_;           /**基于lru策略的缓冲区替换*/
+    Buffer* buffer_pool_{nullptr};    /**缓冲池*/
+    FreeList<buffer_type> free_list_; /**缓冲池空闲列表*/
+    std::unordered_map<buffer_type, block_type>
+        block_2_buffer_; /**输入物理块号，查询缓冲池内是否有buffer对应*/
 };
 }  // namespace FileSystem
 #endif  // FILE_SYSTEM_BUFFER_H

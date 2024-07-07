@@ -8,8 +8,8 @@ add_library(
         include/buffer.h
         config.cc
         include/config.h
-        core.cc
-        include/core.h
+        fs.cc
+        include/fs.h
         inode.cc
         include/inode.h
         super_block.cc
@@ -20,6 +20,9 @@ add_library(
         lru_replacer.cc
         include/lru_replacer.h
         include/rw_lock.h
+        include/free_list.h
+        include/bidi_map.h
+        bidi_map.cc
 )
 
 #在这里引入include目录

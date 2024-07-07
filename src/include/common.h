@@ -9,6 +9,8 @@
 
 namespace FileSystem {
 auto GetCurrentTime() -> std::string;
-}
+
+auto RemoveVDisk() -> bool;
+}  // namespace FileSystem
 
 #endif  // FILE_SYSTEM_COMMON_H

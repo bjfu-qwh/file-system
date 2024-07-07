@@ -2,6 +2,7 @@
 #include <cstring>
 #include <string>
 
+#include "../src/include/common.h"
 #include "../src/include/disk_manager.h"
 #include "../src/include/exception.h"
 
@@ -31,6 +32,7 @@ void testBasicReadAndWrite() {
     dm.WriteBlock(5, data);
     dm.ReadBlock(5, buf);
     assert(memcmp(buf, data, sizeof(buf)) == 0);
+    RemoveVDisk();
 }
 }  // namespace FileSystem
 
