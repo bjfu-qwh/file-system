@@ -24,13 +24,7 @@ auto Buffer::GetBlockId() const -> block_type { return block_id_; }
 
 auto Buffer::GetRefCount() const -> size_t { return ref_count_; }
 
-auto Buffer::GetData() -> char* {
-    auto data_copy = new char[BLOCK_SIZE];
-    lock_.RLock();
-    strncpy(data_copy, data_, BLOCK_SIZE);
-    lock_.RUnlock();
-    return data_copy;
-}
+auto Buffer::GetData() -> char* { return data_; }
 
 auto Buffer::IsDirty() const -> bool { return is_dirty_; }
 
@@ -103,6 +97,8 @@ auto BufferManager::AccessBlock(const block_type& block_id) -> Buffer* {
         buffer_pool_[buffer_id].Reset();
         buffer_pool_[buffer_id].SetBlockId(block_id);
         dm_->ReadBlock(block_id, buffer_pool_[buffer_id].GetData());
+    } else {
+        buffer_id = block_2_buffer_[block_id];
     }
     buffer_pool_[buffer_id].Increment();
     replacer_->Record(buffer_id);

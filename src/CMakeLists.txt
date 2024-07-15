@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.7)
 
 add_library(
-        file_system_lib
+        file_system_lib SHARED
         disk_manager.cc
         include/disk_manager.h
         buffer.cc
         include/buffer.h
         config.cc
         include/config.h
+        logger.cc
+        include/logger.h
         fs.cc
         include/fs.h
         inode.cc

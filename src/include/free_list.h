@@ -6,6 +6,10 @@
 #define FREE_LIST_H
 #include <list>
 namespace FileSystem {
+/**
+ * 基于std::list实现空闲列表，非线程安全。
+ * @tparam T 空闲列表类型
+ */
 template <class T>
 class FreeList {
    public:
@@ -32,7 +36,7 @@ auto FreeList<T>::Put(const T& object) -> bool {
 template <typename T>
 auto FreeList<T>::Pop(T& object) -> bool {
     object = free_list_.front();
-    free_list_.pop_back();
+    free_list_.pop_front();
     return true;
 }
 
